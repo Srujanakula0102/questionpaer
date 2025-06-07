@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<Questionweb.Models.FeedbackViewModel>
+
+@{
+    ViewData["Title"] = "User Feedback";
+}
+
+<h2>User Feedback</h2>  
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Feedbacker Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            int i = 1;
+            foreach (var feedback in Model)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@feedback.Fname</td>
+                    <td>@feedback.Description</td>
+                </tr>
+                i++;
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3" class="text-center">No feedback found.</td>
+            </tr>
+        }
+    </tbody>
+</table>

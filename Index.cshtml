@@ -1,0 +1,148 @@
+﻿@model Questionweb.Models.HomeIndexViewModel
+
+
+
+<div class="container">
+  
+    
+            
+
+       <section class="sbd">
+            <div class="img">
+                <h2>Find & Share Question Papers</h2>
+                <h3>
+                    Explore previous year question papers, Search by <mark>Group,Subject,<br />Year</mark> and contribute by uploading your own.
+                </h3>
+            </div>
+            <div class="scrolling-text">
+            <span>The Question Papers Hub is respectfully presented on behalf of the Department of Mining Engineering as a valuable academic resource for the benefit of students. This platform was developed by Srujan, a 2nd-year student </span>
+</div>
+        </section> 
+       <partial name="_Notification" />
+        <section>
+            <div class="table-responsive featured-item fade-in aos-init aos-animate ">
+            <table id="Tbl" class="display">
+                <thead>
+                    <tr>
+                        <th>UploaderName</th>
+                        <th>Subject</th>
+                        <th>Group</th>
+                        <th>Year</th>
+                        <th>Paper</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- DataTables will fill this via AJAX -->
+                </tbody>
+            </table>
+            </div>
+        </section>
+   
+    </div>
+
+<section class="UploadHome">
+
+    
+    <div class="upload">
+        <div class="uploaddown">
+            <h1>
+                Contribute to the Knowledge Base
+            </h1>
+            <p>
+                Uploading previous question papers helps create <br> a valuable academic resource for future students<br>
+                Your contribution promotes collaborative <br>learning and supports academic excellence.<br>
+                Thank you for helping build a better learning&nbsp;environment.
+            </p>
+        </div>
+        <div class="login">
+            <partial name="_Notification" />
+        <form class="formupload1" method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Uploads">
+           
+                
+           
+            <label for="name">Your Name</label>
+            <input type="text" name="name" placeholder="ex : Srujan, Sai" required>
+
+            <label for="subject">Subject Name</label>
+            <input type="text" name="subject" placeholder="ex :Maths,Bee,Dmd,Java,Bme etc.." required>
+
+            <label for="year">Year</label>
+            <input type="number" name="year" placeholder="ex :1 ,2, 3, 4" required>
+
+            <label for="group">Group</label>
+            <input type="text" name="group" placeholder="ex :Mining,Cse,Ece,Bme,Mech,Eee,Aiml,Civil" required>
+
+            <label for="file">Upload File</label>
+            <input type="file" name="File" required />
+
+
+            <button type="submit">Submit for Review</button>
+       </form>
+        </div>
+
+
+
+       </div>
+ 
+
+</section>
+
+    <div class="overlay">
+        <div class="container1">
+            <h2>📚 About Question Papers Hub</h2>
+            <p><strong>Question Papers Hub</strong> is a centralized platform built to help college students easily access and share previous years' question papers. Whether you're preparing for finals or trying to understand subject patterns, our platform gives you fast and organized access to valuable academic materials.</p><h2>🎯 Our Mission</h2>
+            <p>To empower students through open academic resources, simplify exam preparation, and build a collaborative learning environment driven by peer support and smart technology.</p>
+
+            <h2>🚀 Key Features</h2>
+            <ul>
+                <li>🔎 <span class="highlight">Global Search (DataTables)</span>: Instantly search across all fields using a fast, responsive search system.</li>
+                <li>📤 <span class="highlight">Student Uploads</span>: Share your question papers to help others, with admin-reviewed submissions.</li>
+                <li>✅ <span class="highlight">Admin Approval System</span>: Ensures quality and consistency of all materials.</li>
+                <li>🤖 <span class="highlight">AI Chatbot (ChatGPT)</span>: Find papers, ask academic questions, and get suggestions via natural chat.</li>
+            </ul>
+            <h2>🧠 Why Use Question Papers Hub?</h2>
+            <ul>
+                <li>Save time with fast access to verified question papers</li>
+                <li>Understand real exam trends</li>
+                <li>Contribute to your academic community</li>
+                <li>Get quick help with  AI chatbot</li>
+            </ul>
+
+              <h2>📬 Contact Us</h2>
+            <p>Have questions, feedback, or suggestions?</p>
+            <ul>
+                <li>📧 Email: Srujanakula44@gmail.com</li>
+                <li> 📱 7386569908</li>
+                <li>
+                    <img src="~/imgs/Whats Icons Text Sym.png" style="width:18px;height:18px;margin-right:5px" />
+                    <a href="https://wa.me/7386569908" class="whatsapp-button" target="_blank">
+                        Contact me on WhatsApp
+                    </a>
+                </li>
+
+            </ul>
+
+            <h2>💬 Feedback & Suggestions</h2>
+            <p>We're always working to improve. Share your ideas, suggest features, or report bugs — we’d love to hear from you</p>
+            <form asp-action="Index" method="post">
+                <label asp-for="Feedback.Fname" class="form-label">UserName</label>
+            <input asp-for="Feedback.Fname" class="form-control" />
+            <label asp-for="Feedback.Description" class="form-label">Feedback Description</label>
+            <input asp-for="Feedback.Description" class="form-control" />
+            <button type="submit" class="form-control">Submit</button>
+        </form>
+    </div>
+    <footer class="border-top footer text-muted">
+        <div class="container2 text-end">
+            &copy; 2025 - QPaperhub <br />Architected, Developed and Maintained by - <a asp-area="" asp-controller="Home" asp-action="Contact">Srujan Akula</a>
+        </div>
+    </footer>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/Table.js"></script>
+}
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+

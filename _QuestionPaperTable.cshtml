@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Questionweb.Models.QuestionPaper>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Uploader</th>
+            <th>Subject</th>
+            <th>Year</th>
+            <th>Group</th>
+            <th>File</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var paper in Model)
+        {
+            <tr>
+                <td>@paper.UploaderName</td>
+                <td>@paper.Subject</td>
+                <td>@paper.Year</td>
+                <td>@paper.Group</td>
+                <td>
+                    <a href="@paper.Url" target="_blank">veiw</a>   
+                </td>
+                <td>
+                    <form asp-area="Admin" asp-controller="Admin" asp-action="Delete" method="post" style="display:inline;">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@paper.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

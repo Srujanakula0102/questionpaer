@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Questionweb</title>
+    <script type="importmap"></script>
+   
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="//cdn.datatables.net/2.3.1/css/dataTables.dataTables.min.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+    <link rel="stylesheet" href="~/Questionweb.styles.css" asp-append-version="true" />
+
+    @RenderSection("Styles", required: false)
+</head>
+
+
+<body>
+
+       <header class="desk">
+        <div class="logo">
+           
+            <img src="~/imgs/backlogo-removebg-preview1.png" class="logoi" />
+            <div class="ed1">
+                <h3>University College of Engineering </h3>
+                <h4 style="text-align: center;">Osmania University</h4>
+            </div>
+        </div>
+        <nav>
+            <a asp-controller="Home" asp-action="Index"><i class="fa fa-home"></i> Home</a>
+            <a asp-controller="Home" asp-action="Uploads"><i class="fa fa-upload"></i> Upload</a>
+            <a  asp-action="About">About</a>
+            <a asp-controller="Home" asp-action="Contact"><i class="fa fa-address-book"></i> Contact</a>
+            @if (User.IsInRole("Admin"))
+            {
+                <a  asp-area="Admin" asp-controller="Admin" asp-action="Index" class="admin-button"><i class="fa fa-desktop"></i> Admin Panel</a>
+            }
+            <div>
+                <partial name="_LoginPartial" />
+            </div>
+        </nav> 
+
+    </header>  
+    <header class="header1">
+        <div class="logo-container">
+            <img src="~/imgs/backlogo-removebg-preview1.png" alt="Logo" class="logo" />
+            <div class="site-title">
+                <h3>University College of Engineering -(A)</h3>
+                <h4>Osmania University</h4>
+            </div>
+            <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        </div>
+        <nav class="desktop-nav">
+
+        </nav>
+        <div class="mobile-menu" id="mobileMenu">
+            <span class="close-btn" onclick="toggleMenu()">&times;</span>
+            <a asp-controller="Home" asp-action="Index"><i class="fa fa-home"></i> Home</a>
+            <a asp-controller="Home" asp-action="Uploads"><i class="fa fa-upload"></i> Upload</a>
+            <a  asp-controller="Home" asp-action="About">About</a>
+            <a asp-controller="Home" asp-action="Contact" ><i class="fa fa-address-book"></i> Contact</a>
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-area="Admin" asp-controller="Admin" asp-action="Index" class="admin-button"><i class="fa fa-desktop"></i> Admin Panel</a>
+            }
+            <div>
+                <partial name="_LoginPartial" />
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+     <div>
+        <main role="main" class="pb-3;bg-primary" id="fullscreen">
+            @RenderBody()
+        </main>
+    </div> 
+
+   
+    <!-- Correct order: jQuery first, then plugins, then your scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="//cdn.datatables.net/2.3.1/js/dataTables.min.js"></script>
+    <script src="~/js/Table.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+    
+</body>
+</html>

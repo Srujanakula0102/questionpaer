@@ -1,0 +1,26 @@
+﻿<div class="upload" >
+
+
+<form id="newupload" class="formupload1" method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Uploads">
+    <label for="name">Your Name</label>
+    <input type="text" name="name"placeholder="ex : Srujan, Sai" required>
+
+    <label for="subject">Subject Name</label>
+        <input type="text" name="subject" placeholder="ex :Maths,Bee,Dmd,Java,Bme etc.." required>
+
+    <label for="year">Year</label>
+    <input type="number" name="year"placeholder="ex :1 ,2, 3, 4" required>
+
+    <label for="group">Group</label>
+    <input type="text" name="group"placeholder="ex :Mining,Cse,Ece,Bme,Mech,Eee,Aiml,Civil" required>
+
+    <label for="file">Upload File</label>
+        <input type="file" name="File"  required />
+        
+
+    <button type="submit">Submit for Review</button>
+</form>
+   
+
+</div>
+<script src="~/js/site.js" asp-append-version="true"></script>
